@@ -13,9 +13,9 @@ package treemap
 
 import (
 	"fmt"
-	"github.com/emirpasic/gods/maps"
-	rbt "github.com/emirpasic/gods/trees/redblacktree"
-	"github.com/emirpasic/gods/utils"
+	"github.com/idoall/gods/maps"
+	rbt "github.com/idoall/gods/trees/redblacktree"
+	"github.com/idoall/gods/utils"
 	"strings"
 )
 

@@ -4,7 +4,7 @@
 
 package examples
 
-import "github.com/emirpasic/gods/stacks/arraystack"
+import "github.com/idoall/gods/stacks/arraystack"
 
 // ArrayStackExample to demonstrate basic usage of ArrayStack
 func ArrayStackExample() {

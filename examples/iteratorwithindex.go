@@ -6,7 +6,7 @@ package examples
 
 import (
 	"fmt"
-	"github.com/emirpasic/gods/sets/treeset"
+	"github.com/idoall/gods/sets/treeset"
 )
 
 // IteratorWithIndexExample to demonstrate basic usage of IteratorWithIndex

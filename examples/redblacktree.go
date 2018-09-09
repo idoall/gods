@@ -6,7 +6,7 @@ package examples
 
 import (
 	"fmt"
-	rbt "github.com/emirpasic/gods/trees/redblacktree"
+	rbt "github.com/idoall/gods/trees/redblacktree"
 )
 
 // RedBlackTreeExample to demonstrate basic usage of RedBlackTree

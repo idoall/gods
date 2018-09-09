@@ -4,7 +4,7 @@
 
 package examples
 
-import "github.com/emirpasic/gods/maps/treemap"
+import "github.com/idoall/gods/maps/treemap"
 
 // TreeMapExample to demonstrate basic usage of TreeMap
 func TreeMapExample() {

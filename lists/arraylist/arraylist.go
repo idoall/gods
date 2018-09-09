@@ -11,9 +11,10 @@ package arraylist
 
 import (
 	"fmt"
-	"github.com/emirpasic/gods/lists"
-	"github.com/emirpasic/gods/utils"
 	"strings"
+
+	"github.com/idoall/gods/lists"
+	"github.com/idoall/gods/utils"
 )
 
 func assertListImplementation() {

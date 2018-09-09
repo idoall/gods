@@ -11,8 +11,8 @@ package doublylinkedlist
 
 import (
 	"fmt"
-	"github.com/emirpasic/gods/lists"
-	"github.com/emirpasic/gods/utils"
+	"github.com/idoall/gods/lists"
+	"github.com/idoall/gods/utils"
 	"strings"
 )
 

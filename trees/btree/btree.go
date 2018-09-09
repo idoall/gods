@@ -19,8 +19,8 @@ package btree
 import (
 	"bytes"
 	"fmt"
-	"github.com/emirpasic/gods/trees"
-	"github.com/emirpasic/gods/utils"
+	"github.com/idoall/gods/trees"
+	"github.com/idoall/gods/utils"
 	"strings"
 )
 
