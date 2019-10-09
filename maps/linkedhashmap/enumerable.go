@@ -4,7 +4,7 @@
 
 package linkedhashmap
 
-import "github.com/emirpasic/gods/containers"
+import "github.com/idoall/gods/containers"
 
 func assertEnumerableImplementation() {
 	var _ containers.EnumerableWithKey = (*Map)(nil)

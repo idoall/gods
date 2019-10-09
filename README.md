@@ -316,7 +316,7 @@ Implements [Set](#sets), [IteratorWithIndex](#iteratorwithindex), [EnumerableWit
 ```go
 package main
 
-import "github.com/emirpasic/gods/sets/linkedhashset"
+import "github.com/idoall/gods/sets/linkedhashset"
 
 func main() {
 	set := linkedhashset.New() // empty
@@ -507,7 +507,7 @@ Implements [Map](#maps), [IteratorWithKey](#iteratorwithkey), [EnumerableWithKey
 ```go
 package main
 
-import "github.com/emirpasic/gods/maps/linkedhashmap"
+import "github.com/idoall/gods/maps/linkedhashmap"
 
 func main() {
 	m := linkedhashmap.New() // empty (keys are of type int)
