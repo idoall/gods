@@ -6,43 +6,54 @@ Implementation of various data structures and algorithms in Go.
 
 ## Data Structures
 
-- [Containers](#containers)
-  - [Lists](#lists)
-    - [ArrayList](#arraylist)
-    - [SinglyLinkedList](#singlylinkedlist)
-    - [DoublyLinkedList](#doublylinkedlist)
-  - [Sets](#sets)
-    - [HashSet](#hashset)
-    - [TreeSet](#treeset)
-  - [Stacks](#stacks)
-    - [LinkedListStack](#linkedliststack)
-    - [ArrayStack](#arraystack)
-  - [Maps](#maps)
-    - [HashMap](#hashmap)
-    - [TreeMap](#treemap)
-    - [HashBidiMap](#hashbidimap)
-    - [TreeBidiMap](#treebidimap)
-  - [Trees](#trees)
-    - [RedBlackTree](#redblacktree)
-    - [AVLTree](#avltree)
-    - [BTree](#btree)
-    - [BinaryHeap](#binaryheap)
-- [Functions](#functions)
-    - [Comparator](#comparator)
-    - [Iterator](#iterator)
-      - [IteratorWithIndex](#iteratorwithindex)
-      - [IteratorWithKey](#iteratorwithkey)
-      - [ReverseIteratorWithIndex](#reverseiteratorwithindex)
-      - [ReverseIteratorWithKey](#reverseiteratorwithkey)
-    - [Enumerable](#enumerable)
-      - [EnumerableWithIndex](#enumerablewithindex)
-      - [EnumerableWithKey](#enumerablewithkey)
-    - [Serialization](#serialization)
-      - [JSONSerializer](#jsonserializer)
-      - [JSONDeserializer](#jsondeserializer)
-    - [Sort](#sort)
-    - [Container](#container)
-- [Appendix](#appendix)
+- [GoDS (Go Data Structures)](#gods-go-data-structures)
+	- [Data Structures](#data-structures)
+	- [Containers](#containers)
+		- [Lists](#lists)
+			- [ArrayList](#arraylist)
+			- [SinglyLinkedList](#singlylinkedlist)
+			- [DoublyLinkedList](#doublylinkedlist)
+		- [Sets](#sets)
+			- [HashSet](#hashset)
+			- [TreeSet](#treeset)
+			- [LinkedHashSet](#linkedhashset)
+		- [Stacks](#stacks)
+			- [LinkedListStack](#linkedliststack)
+			- [ArrayStack](#arraystack)
+		- [Maps](#maps)
+			- [HashMap](#hashmap)
+			- [TreeMap](#treemap)
+			- [LinkedHashMap](#linkedhashmap)
+			- [HashBidiMap](#hashbidimap)
+			- [TreeBidiMap](#treebidimap)
+		- [Trees](#trees)
+			- [RedBlackTree](#redblacktree)
+			- [AVLTree](#avltree)
+			- [BTree](#btree)
+			- [BinaryHeap](#binaryheap)
+	- [Functions](#functions)
+		- [Comparator](#comparator)
+		- [Iterator](#iterator)
+			- [IteratorWithIndex](#iteratorwithindex)
+			- [IteratorWithKey](#iteratorwithkey)
+			- [ReverseIteratorWithIndex](#reverseiteratorwithindex)
+			- [ReverseIteratorWithKey](#reverseiteratorwithkey)
+		- [Enumerable](#enumerable)
+			- [EnumerableWithIndex](#enumerablewithindex)
+			- [EnumerableWithKey](#enumerablewithkey)
+		- [Serialization](#serialization)
+			- [JSONSerializer](#jsonserializer)
+			- [JSONDeserializer](#jsondeserializer)
+		- [Sort](#sort)
+		- [Container](#container)
+	- [Appendix](#appendix)
+		- [Motivation](#motivation)
+		- [Goals](#goals)
+		- [Testing and Benchmarking](#testing-and-benchmarking)
+		- [Contributing](#contributing)
+		- [License](#license)
+		- [Sponsors](#sponsors)
+	- [<a href="https://www.browserstack.com/?ref=gods"><img src="http://www.hajdarevic.net/browserstack.svg" alt="BrowserStack" width="250"/></a>](#a-href%22httpswwwbrowserstackcomrefgods%22img-src%22httpwwwhajdarevicnetbrowserstacksvg%22-alt%22browserstack%22-width%22250%22a)
 
 
 ## Containers
@@ -60,24 +71,31 @@ type Container interface {
 
 Containers are either ordered or unordered. All ordered containers provide [stateful iterators](#iterator) and some of them allow [enumerable functions](#enumerable).
 
-| Container | Ordered | [Iterator](#iterator) | [Enumerable](#enumerable) | Referenced by |
-| :--- | :---: | :---: | :---: | :---: |
-| [ArrayList](#arraylist) | yes | yes* | yes | index |
-| [SinglyLinkedList](#singlylinkedlist) | yes | yes | yes | index |
-| [DoublyLinkedList](#doublylinkedlist) | yes | yes* | yes | index |
-| [HashSet](#hashset) | no | no | no | index |
-| [TreeSet](#treeset) | yes | yes* | yes | index |
-| [LinkedListStack](#linkedliststack) | yes | yes | no | index |
-| [ArrayStack](#arraystack) | yes | yes* | no | index |
-| [HashMap](#hashmap) | no | no | no | key |
-| [TreeMap](#treemap) | yes | yes* | yes | key |
-| [HashBidiMap](#hashbidimap) | no | no | no | key* |
-| [TreeBidiMap](#treebidimap) | yes | yes* | yes | key* |
-| [RedBlackTree](#redblacktree) | yes | yes* | no | key |
-| [AVLTree](#avltree) | yes | yes* | no | key |
-| [BTree](#btree) | yes | yes* | no | key |
-| [BinaryHeap](#binaryheap) | yes | yes* | no | index |
-|  |  | <sub><sup>*reversible</sup></sub> |  | <sub><sup>*bidirectional</sup></sub> |
+| **Data** | **Structure** | **Ordered** | **[Iterator](#iterator)** | **[Enumerable](#enumerable)** | **Referenced by** |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| [Lists](#lists) |
+|   | [ArrayList](#arraylist) | yes | yes* | yes | index |
+|   | [SinglyLinkedList](#singlylinkedlist) | yes | yes | yes | index |
+|   | [DoublyLinkedList](#doublylinkedlist) | yes | yes* | yes | index |
+| [Sets](#sets) |
+|   | [HashSet](#hashset) | no | no | no | index |
+|   | [TreeSet](#treeset) | yes | yes* | yes | index |
+|   | [LinkedHashSet](#linkedhashset) | yes | yes* | yes | index |
+| [Stacks](#stacks) |
+|   | [LinkedListStack](#linkedliststack) | yes | yes | no | index |
+|   | [ArrayStack](#arraystack) | yes | yes* | no | index |
+| [Maps](#maps) |
+|   | [HashMap](#hashmap) | no | no | no | key |
+|   | [TreeMap](#treemap) | yes | yes* | yes | key |
+|   | [LinkedHashMap](#linkedhashmap) | yes | yes* | yes | key |
+|   | [HashBidiMap](#hashbidimap) | no | no | no | key* |
+|   | [TreeBidiMap](#treebidimap) | yes | yes* | yes | key* |
+| [Trees](#trees) |
+|   | [RedBlackTree](#redblacktree) | yes | yes* | no | key |
+|   | [AVLTree](#avltree) | yes | yes* | no | key |
+|   | [BTree](#btree) | yes | yes* | no | key |
+|   | [BinaryHeap](#binaryheap) | yes | yes* | no | index |
+|   |  |  | <sub><sup>*reversible</sup></sub> |  | <sub><sup>*bidirectional</sup></sub> |
 
 ### Lists
 
@@ -94,6 +112,7 @@ type List interface {
 	Sort(comparator utils.Comparator)
 	Swap(index1, index2 int)
 	Insert(index int, values ...interface{})
+	Set(index int, value interface{})
 
 	containers.Container
 	// Empty() bool
@@ -288,6 +307,34 @@ func main() {
 }
 ```
 
+#### LinkedHashSet
+
+A [set](#sets) that preserves insertion-order. Data structure is backed by a hash table to store values and [doubly-linked list](#doublylinkedlist) to store insertion ordering.
+
+Implements [Set](#sets), [IteratorWithIndex](#iteratorwithindex), [EnumerableWithIndex](#enumerablewithindex), [JSONSerializer](#jsonserializer) and [JSONDeserializer](#jsondeserializer) interfaces.
+
+```go
+package main
+
+import "github.com/emirpasic/gods/sets/linkedhashset"
+
+func main() {
+	set := linkedhashset.New() // empty
+	set.Add(5)                 // 5
+	set.Add(4, 4, 3, 2, 1)     // 5, 4, 3, 2, 1 (in insertion-order, duplicates ignored)
+	set.Add(4)                 // 5, 4, 3, 2, 1 (duplicates ignored, insertion-order unchanged)
+	set.Remove(4)              // 5, 3, 2, 1 (in insertion-order)
+	set.Remove(2, 3)           // 5, 1 (in insertion-order)
+	set.Contains(1)            // true
+	set.Contains(1, 5)         // true
+	set.Contains(1, 6)         // false
+	_ = set.Values()           // []int{5, 1} (in insertion-order)
+	set.Clear()                // empty
+	set.Empty()                // true
+	set.Size()                 // 0
+}
+```
+
 ### Stacks
 
 A stack that represents a last-in-first-out (LIFO) data structure. The usual push and pop operations are provided, as well as a method to peek at the top item on the stack.
@@ -422,7 +469,7 @@ func main() {
 
 #### TreeMap
 
-A [map](#maps) based on [red-black tree](#redblacktree). Keys are ordered  ordered with respect to the [comparator](#comparator).
+A [map](#maps) based on [red-black tree](#redblacktree). Keys are ordered with respect to the [comparator](#comparator).
 
 Implements [Map](#maps), [IteratorWithKey](#iteratorwithkey), [EnumerableWithKey](#enumerablewithkey), [JSONSerializer](#jsonserializer) and [JSONDeserializer](#jsondeserializer) interfaces.
 
@@ -449,6 +496,34 @@ func main() {
 	m.Min() // Returns the minimum key and its value from map.
 	m.Max() // Returns the maximum key and its value from map.
 }
+```
+
+#### LinkedHashMap
+
+A [map](#maps) that preserves insertion-order. It is backed by a hash table to store values and [doubly-linked list](doublylinkedlist) to store ordering.
+
+Implements [Map](#maps), [IteratorWithKey](#iteratorwithkey), [EnumerableWithKey](#enumerablewithkey), [JSONSerializer](#jsonserializer) and [JSONDeserializer](#jsondeserializer) interfaces.
+
+```go
+package main
+
+import "github.com/emirpasic/gods/maps/linkedhashmap"
+
+func main() {
+	m := linkedhashmap.New() // empty (keys are of type int)
+	m.Put(2, "b")            // 2->b
+	m.Put(1, "x")            // 2->b, 1->x (insertion-order)
+	m.Put(1, "a")            // 2->b, 1->a (insertion-order)
+	_, _ = m.Get(2)          // b, true
+	_, _ = m.Get(3)          // nil, false
+	_ = m.Values()           // []interface {}{"b", "a"} (insertion-order)
+	_ = m.Keys()             // []interface {}{2, 1} (insertion-order)
+	m.Remove(1)              // 2->b
+	m.Clear()                // empty
+	m.Empty()                // true
+	m.Size()                 // 0
+}
+
 ```
 
 #### HashBidiMap
@@ -704,14 +779,15 @@ func main() {
 	_ = tree.Values() // []interface {}{"a", "b", "c", "d", "e", "f", "g"} (in order)
 	_ = tree.Keys()   // []interface {}{1, 2, 3, 4, 5, 6, 7} (in order)
 
-	tree.Remove(2) // 1->a, 3->c, 4->d, 5->e, 6->f (in order)
+	tree.Remove(2) // 1->a, 3->c, 4->d, 5->e, 6->f, 7->g (in order)
 	fmt.Println(tree)
 	// BTree
 	//     1
 	//     3
 	// 4
 	//     5
-	//     6
+	// 6
+	//     7
 
 	tree.Clear() // empty
 	tree.Empty() // true
@@ -1282,14 +1358,14 @@ import (
 )
 
 func main() {
-	list := arraylist.New()
+	hm := hashmap.New()
 
-	json := []byte(`["a","b"]`)
-	err := list.FromJSON(json)
+	json := []byte(`{"a":"1","b":"2"}`)
+	err := hm.FromJSON(json)
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println(list) // ArrayList ["a","b"]
+	fmt.Println(hm) // HashMap map[b:2 a:1]
 }
 ```
 
